@@ -2,7 +2,7 @@ package edu.challengAlkemy.javaSpringBoot.security;
 
 import edu.challengAlkemy.javaSpringBoot.filter.CustomAuthenticationFilter;
 import edu.challengAlkemy.javaSpringBoot.filter.CustomAuthorizationFilter;
-import edu.challengAlkemy.javaSpringBoot.service.UserService;
+import edu.challengAlkemy.javaSpringBoot.service.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,7 +20,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @RequiredArgsConstructor
 public class AppSecurity extends WebSecurityConfigurerAdapter {
 
-    private final UserService userService;
+    private final UserServiceImpl userService;
     private final BCryptPasswordEncoder encoder;
 
     @Override

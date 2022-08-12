@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.challengAlkemy.javaSpringBoot.dto.UserDto;
 import edu.challengAlkemy.javaSpringBoot.entity.Role;
 import edu.challengAlkemy.javaSpringBoot.entity.User;
-import edu.challengAlkemy.javaSpringBoot.service.UserService;
+import edu.challengAlkemy.javaSpringBoot.service.UserServiceImpl;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,7 +35,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 @RequiredArgsConstructor
 public class AuthController {
 
-    private final UserService userService;
+    private final UserServiceImpl userService;
 
     @PostMapping("/login")
     public ResponseEntity<?> login(String username, String password, HttpServletResponse response) {

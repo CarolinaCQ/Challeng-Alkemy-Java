@@ -2,56 +2,10 @@ package edu.challengAlkemy.javaSpringBoot.service;
 
 import edu.challengAlkemy.javaSpringBoot.dto.UserDto;
 import edu.challengAlkemy.javaSpringBoot.entity.User;
-import edu.challengAlkemy.javaSpringBoot.exception.CustomException;
-import edu.challengAlkemy.javaSpringBoot.mapper.UserDtoToUser;
-import edu.challengAlkemy.javaSpringBoot.repository.UserRepository;
-import java.util.ArrayList;
-import java.util.Collection;
-import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-@Service
-@RequiredArgsConstructor
-public class UserService implements UserDetailsService {
-
-    private final UserRepository userRepository;
-    private final UserDtoToUser mapper;
-
-    public User createUser(UserDto dto) {
-        if (userRepository.existsByUsername(dto.getUsername())) {
-            throw new CustomException("Invalid, this username already exists", HttpStatus.BAD_REQUEST);
-        }
-        return userRepository.save(mapper.apply(dto));
-    }
-
-    @Transactional(readOnly = true)
-    public User getUser(String username) throws Exception {
-        if (!userRepository.existsByUsername(username)) {
-            throw new CustomException("This username not found", HttpStatus.NOT_FOUND);
-        }
-        return userRepository.findByUsername(username).get();
-    }
-
-    @Transactional
-    public void deleteUser(Long id) {
-        userRepository.deleteById(id);
-    }
-
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User not found."));
-        Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        user.getRoles().forEach((role) -> {
-            authorities.add(new SimpleGrantedAuthority(role.getName()));
-        });
-
-        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), authorities);
-
-    }
+public interface UserService {
+    
+    User getUser(String username);
+    User createUser(UserDto dto);
+    void deleteUser(Long id);
 }

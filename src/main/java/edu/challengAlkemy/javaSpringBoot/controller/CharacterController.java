@@ -3,7 +3,7 @@ package edu.challengAlkemy.javaSpringBoot.controller;
 import edu.challengAlkemy.javaSpringBoot.dto.CharacterDto;
 import edu.challengAlkemy.javaSpringBoot.dto.CharacterDtoImageAndName;
 import edu.challengAlkemy.javaSpringBoot.entity.Character;
-import edu.challengAlkemy.javaSpringBoot.service.CharacterService;
+import edu.challengAlkemy.javaSpringBoot.service.CharacterServiceImpl;
 import edu.challengAlkemy.javaSpringBoot.utility.ParamToDto;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -24,7 +24,7 @@ import org.springframework.web.multipart.MultipartFile;
 @RequiredArgsConstructor
 public class CharacterController {
 
-    private final CharacterService characterService;
+    private final CharacterServiceImpl characterService;
     private final ParamToDto paramToDto;
 
     @GetMapping

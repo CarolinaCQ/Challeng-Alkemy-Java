@@ -2,7 +2,7 @@ package edu.challengAlkemy.javaSpringBoot.controller;
 
 import edu.challengAlkemy.javaSpringBoot.dto.RoleDto;
 import edu.challengAlkemy.javaSpringBoot.entity.Role;
-import edu.challengAlkemy.javaSpringBoot.service.RoleService;
+import edu.challengAlkemy.javaSpringBoot.service.RoleServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class RoleController {
 
-    private final RoleService roleService;
+    private final RoleServiceImpl roleService;
 
     @PostMapping("/create")
     public ResponseEntity<Role> createRole(@RequestBody RoleDto dto) {

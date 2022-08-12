@@ -4,8 +4,8 @@ import edu.challengAlkemy.javaSpringBoot.dto.CharacterDto;
 import edu.challengAlkemy.javaSpringBoot.dto.GenreDto;
 import edu.challengAlkemy.javaSpringBoot.dto.MovieDto;
 import edu.challengAlkemy.javaSpringBoot.exception.CustomException;
-import edu.challengAlkemy.javaSpringBoot.service.CharacterService;
-import edu.challengAlkemy.javaSpringBoot.service.MovieService;
+import edu.challengAlkemy.javaSpringBoot.service.CharacterServiceImpl;
+import edu.challengAlkemy.javaSpringBoot.service.MovieServiceImpl;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
@@ -17,8 +17,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class ParamToDto {
 
-    private final CharacterService characterService;
-    private final MovieService movieService;
+    private final CharacterServiceImpl characterService;
+    private final MovieServiceImpl movieService;
 
     public CharacterDto paramsToCharacterDto(Long id, String name, Integer age, Float weight, String biography) {
         CharacterDto characterDto = new CharacterDto();

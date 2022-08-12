@@ -3,8 +3,8 @@ package edu.challengAlkemy.javaSpringBoot.controller;
 import edu.challengAlkemy.javaSpringBoot.dto.MovieDto;
 import edu.challengAlkemy.javaSpringBoot.dto.MovieDtoImageNameAndCreationDate;
 import edu.challengAlkemy.javaSpringBoot.entity.Movie;
-import edu.challengAlkemy.javaSpringBoot.service.CharacterService;
-import edu.challengAlkemy.javaSpringBoot.service.MovieService;
+import edu.challengAlkemy.javaSpringBoot.service.CharacterServiceImpl;
+import edu.challengAlkemy.javaSpringBoot.service.MovieServiceImpl;
 import edu.challengAlkemy.javaSpringBoot.utility.ParamToDto;
 import io.swagger.annotations.ApiParam;
 import java.time.LocalDate;
@@ -27,8 +27,8 @@ import org.springframework.web.multipart.MultipartFile;
 @RequiredArgsConstructor
 public class MovieController {
 
-    private final MovieService movieService;
-    private final CharacterService characterService;
+    private final MovieServiceImpl movieService;
+    private final CharacterServiceImpl characterService;
     private final ParamToDto paramToDto;
 
     @GetMapping

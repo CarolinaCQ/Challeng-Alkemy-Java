@@ -2,8 +2,8 @@ package edu.challengAlkemy.javaSpringBoot.controller;
 
 import edu.challengAlkemy.javaSpringBoot.dto.GenreDto;
 import edu.challengAlkemy.javaSpringBoot.entity.Genre;
-import edu.challengAlkemy.javaSpringBoot.service.GenreService;
-import edu.challengAlkemy.javaSpringBoot.service.MovieService;
+import edu.challengAlkemy.javaSpringBoot.service.GenreServiceImpl;
+import edu.challengAlkemy.javaSpringBoot.service.MovieServiceImpl;
 import edu.challengAlkemy.javaSpringBoot.utility.ParamToDto;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -22,8 +22,8 @@ import org.springframework.web.multipart.MultipartFile;
 @RequiredArgsConstructor
 public class GenreController {
 
-    private final GenreService genreService;
-    private final MovieService movieService;
+    private final GenreServiceImpl genreService;
+    private final MovieServiceImpl movieService;
     private final ParamToDto paramToDto;
 
     @PostMapping("/create")

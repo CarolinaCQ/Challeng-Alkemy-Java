@@ -2,7 +2,7 @@ package edu.challengAlkemy.javaSpringBoot.mapper;
 
 import edu.challengAlkemy.javaSpringBoot.dto.UserDto;
 import edu.challengAlkemy.javaSpringBoot.entity.User;
-import edu.challengAlkemy.javaSpringBoot.service.RoleService;
+import edu.challengAlkemy.javaSpringBoot.service.RoleServiceImpl;
 import java.util.function.Function;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 public class UserDtoToUser implements Function<UserDto, User>{
     
     private final BCryptPasswordEncoder encode;
-    private final RoleService roleService;
+    private final RoleServiceImpl roleService;
 
     @Override
     public User apply(UserDto dto) {

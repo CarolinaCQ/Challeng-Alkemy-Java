@@ -30,7 +30,7 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     public Role createRole(RoleDto dto) {
-        if (!roleRepository.existsByName(dto.getName())) {
+        if (roleRepository.existsByName(dto.getName())) {
             throw new CustomException("Invalid, this role already exists", HttpStatus.BAD_REQUEST);
         }
         return roleRepository.save(mapper.apply(dto));

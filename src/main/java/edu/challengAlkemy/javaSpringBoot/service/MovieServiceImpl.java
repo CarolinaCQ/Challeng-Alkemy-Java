@@ -103,6 +103,9 @@ public class MovieServiceImpl implements MovieService {
     @Override
     @Transactional(readOnly=true)
     public Movie getByIdMovieOrSerie(Long id) {
+        if (!movieRepository.existsById(id)) {
+            throw new CustomException("Movie not found", HttpStatus.NOT_FOUND);
+        }
         return movieRepository.findById(id).get();
     }
 

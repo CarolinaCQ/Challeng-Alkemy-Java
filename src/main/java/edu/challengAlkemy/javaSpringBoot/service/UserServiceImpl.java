@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 
     @Override
     public User createUser(UserDto dto) {
-        if (!userRepository.existsByUsername(dto.getUsername())) {
+        if (userRepository.existsByUsername(dto.getUsername())) {
             throw new CustomException("Invalid, this username already exists", HttpStatus.BAD_REQUEST);
         }
         return userRepository.save(mapper.apply(dto));
